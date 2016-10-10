@@ -23,10 +23,16 @@ namespace QuantConnect.Logging
     /// </summary>
     public class ConsoleLogHandler : ILogHandler
     {
-        private const string DefaultDateFormat = "yyyyMMdd HH:mm:ss";
+        private const string DefaultDateFormat = "yyyyMMdd HH:mm:ss.fff";
         private readonly TextWriter _trace;
         private readonly TextWriter _error;
-        private readonly string _dateFormat;
+        private string _dateFormat;
+
+        public string DateFormat
+        {
+            get { return _dateFormat; }
+            set { _dateFormat = value; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantConnect.Logging.ConsoleLogHandler"/> class.
